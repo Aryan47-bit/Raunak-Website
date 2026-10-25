@@ -1,0 +1,1228 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RAUNAK '26 (रौनक) | Annual Diwali Fest of MSIT by OCTAVE</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Rozha One (Devanagari & Royal Serif), Cinzel Decorative, Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Rozha+One&display=swap" rel="stylesheet">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            obsidian: '#120204',
+            maroonDark: '#1E0307',
+            crimson: '#8B0000',
+            royalRed: '#B8001F',
+            dripRed: '#E6192E',
+            goldLight: '#FFF1A8',
+            gold: '#FFD700',
+            goldBurnished: '#D4AF37',
+            goldDeep: '#996515',
+            ivory: '#FFF8E7',
+            parchment: '#F5E6D3'
+          },
+          fontFamily: {
+            royal: ['"Cinzel Decorative"', 'serif'],
+            hindi: ['"Rozha One"', 'serif'],
+            drip: ['"Syne"', 'sans-serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      --gold-grad: linear-gradient(135deg, #FFF3B0 0%, #FFD700 35%, #D4AF37 70%, #9A6F1A 100%);
+      --red-grad: linear-gradient(135deg, #B8001F 0%, #7A0010 50%, #3A0007 100%);
+    }
+
+    body {
+      background-color: #120204;
+      background-image: 
+        radial-gradient(circle at 50% 0%, rgba(184, 0, 31, 0.35) 0%, transparent 60%),
+        radial-gradient(circle at 85% 40%, rgba(212, 175, 55, 0.12) 0%, transparent 50%),
+        radial-gradient(circle at 15% 80%, rgba(184, 0, 31, 0.25) 0%, transparent 55%);
+      color: #FFF8E7;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* Shimmering Gold Text */
+    .text-gold-gradient {
+      background: linear-gradient(to right, #FFF4B8, #FFD700, #F59E0B, #FFF4B8);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: goldShimmer 5s linear infinite;
+    }
+
+    @keyframes goldShimmer {
+      to { background-position: 200% center; }
+    }
+
+    /* Gold Borders & Glows */
+    .gold-border {
+      border: 1px solid rgba(255, 215, 0, 0.35);
+      box-shadow: 0 0 25px rgba(184, 0, 31, 0.4), inset 0 0 15px rgba(255, 215, 0, 0.06);
+    }
+
+    .gold-border-strong {
+      border: 2px solid #D4AF37;
+      box-shadow: 0 0 30px rgba(255, 215, 0, 0.25), inset 0 0 20px rgba(255, 215, 0, 0.1);
+    }
+
+    .glass-card {
+      background: linear-gradient(145deg, rgba(48, 5, 12, 0.82) 0%, rgba(22, 2, 6, 0.92) 100%);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 215, 0, 0.28);
+    }
+
+    .glass-nav {
+      background: rgba(18, 2, 4, 0.88);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 215, 0, 0.3);
+    }
+
+    /* Rotating Mandala */
+    @keyframes spinSlow {
+      from { transform: translate(-50%, -50%) rotate(0deg); }
+      to { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+    .mandala-spin {
+      animation: spinSlow 55s linear infinite;
+    }
+
+    /* Marquee Animation */
+    @keyframes marqueeScroll {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: marqueeScroll 28s linear infinite;
+    }
+    .marquee-track:hover {
+      animation-play-state: paused;
+    }
+
+    /* Equalizer Bars for Octave Music Society */
+    @keyframes eqBounce {
+      0%, 100% { height: 6px; }
+      50% { height: 22px; }
+    }
+    .eq-bar {
+      width: 3px;
+      background: linear-gradient(to top, #E6192E, #FFD700);
+      border-radius: 999px;
+      display: inline-block;
+      animation: eqBounce 1s ease-in-out infinite;
+    }
+
+    /* Diya Flame Animation */
+    @keyframes flameFlicker {
+      0%, 100% { transform: scale(1) rotate(-2deg); filter: drop-shadow(0 0 10px #FFD700) drop-shadow(0 0 20px #FF6B00); }
+      50% { transform: scale(1.12, 0.92) rotate(2deg); filter: drop-shadow(0 0 16px #FFF3B0) drop-shadow(0 0 28px #FF2A00); }
+    }
+    .diya-flame {
+      animation: flameFlicker 0.8s ease-in-out infinite;
+      transform-origin: bottom center;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #120204; }
+    ::-webkit-scrollbar-thumb { background: linear-gradient(#8B0000, #D4AF37); border-radius: 4px; }
+
+    /* Tab Transition */
+    .tab-section {
+      display: none;
+      animation: fadeSlideUp 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    .tab-section.active {
+      display: block;
+    }
+    @keyframes fadeSlideUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Festive Button Shine */
+    .btn-gold {
+      background: linear-gradient(135deg, #FFE57F 0%, #FFD700 45%, #C59B27 100%);
+      color: #2A0206;
+      font-weight: 800;
+      box-shadow: 0 6px 25px rgba(255, 215, 0, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.8);
+      transition: all 0.25s ease;
+    }
+    .btn-gold:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 10px 32px rgba(255, 215, 0, 0.55), inset 0 1px 2px rgba(255, 255, 255, 1);
+    }
+
+    .btn-crimson {
+      background: linear-gradient(135deg, #E6192E 0%, #990012 100%);
+      color: #FFF8E7;
+      border: 1px solid #FFD700;
+      box-shadow: 0 6px 24px rgba(230, 25, 46, 0.4);
+      transition: all 0.25s ease;
+    }
+    .btn-crimson:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(255, 215, 0, 0.35);
+      background: linear-gradient(135deg, #FF243B 0%, #B30016 100%);
+    }
+
+    /* Brochure Replica Parchment Texture */
+    .brochure-parchment {
+      background-color: #F7EBDB;
+      background-image: 
+        radial-gradient(circle at 50% 45%, rgba(255, 215, 0, 0.15) 0%, transparent 60%),
+        repeating-linear-gradient(45deg, rgba(139, 0, 0, 0.02) 0px, rgba(139, 0, 0, 0.02) 2px, transparent 2px, transparent 8px);
+      color: #4A0E13;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col selection:bg-gold selection:text-obsidian relative">
+
+  <!-- Interactive Particle & Firecracker Canvas -->
+  <canvas id="diwaliCanvas" class="fixed inset-0 pointer-events-none z-0"></canvas>
+
+  <!-- Decorative Hanging Marigold & Mango Leaf Toran SVG (Top Festoon) -->
+  <div class="w-full overflow-hidden pointer-events-none z-20 fixed top-16 md:top-20 left-0 opacity-95">
+    <svg viewBox="0 0 1440 54" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-7 md:h-11 preserve-3d">
+      <defs>
+        <linearGradient id="marigoldYellow" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#FFE033"/>
+          <stop offset="100%" stop-color="#FF8C00"/>
+        </linearGradient>
+        <linearGradient id="marigoldOrange" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#FF6B00"/>
+          <stop offset="100%" stop-color="#B8001F"/>
+        </linearGradient>
+        <pattern id="toranPattern" x="0" y="0" width="180" height="54" patternUnits="userSpaceOnUse">
+          <rect x="0" y="0" width="180" height="4" fill="#FFD700"/>
+          <path d="M20 4 L26 20 L14 20 Z" fill="#1F6E2E"/>
+          <path d="M60 4 L66 20 L54 20 Z" fill="#1F6E2E"/>
+          <path d="M100 4 L106 20 L94 20 Z" fill="#1F6E2E"/>
+          <path d="M140 4 L146 20 L134 20 Z" fill="#1F6E2E"/>
+          <path d="M0 8 Q45 46 90 12 Q135 46 180 8" stroke="url(#marigoldYellow)" stroke-width="8" stroke-dasharray="6 4" stroke-linecap="round" fill="none"/>
+          <path d="M0 12 Q45 50 90 16 Q135 50 180 12" stroke="url(#marigoldOrange)" stroke-width="5" stroke-dasharray="3 7" stroke-linecap="round" fill="none"/>
+          <circle cx="90" cy="24" r="6" fill="#FFD700"/>
+          <circle cx="90" cy="36" r="4.5" fill="#E6192E"/>
+          <path d="M86 44 L94 44 L90 52 Z" fill="#FFD700"/>
+          <circle cx="45" cy="34" r="4" fill="#FFD700"/>
+          <circle cx="135" cy="34" r="4" fill="#FFD700"/>
+        </pattern>
+      </defs>
+      <rect width="1440" height="54" fill="url(#toranPattern)"/>
+    </svg>
+  </div>
+
+  <!-- ================= STICKY NAVIGATION BAR ================= -->
+  <header class="sticky top-0 z-50 glass-nav">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 md:h-20 flex items-center justify-between gap-3">
+      
+      <!-- Brand Logo -->
+      <button onclick="switchTab('home')" class="flex items-center gap-3 text-left group focus:outline-none">
+        <div class="relative w-11 h-11 md:w-13 md:h-13 rounded-full overflow-hidden border-2 border-gold shadow-lg group-hover:scale-105 transition bg-obsidian">
+          <img src="./assets/octavelogo.jpeg" alt="Octave Logo" class="w-full h-full object-cover">
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="font-hindi text-2xl md:text-3xl tracking-wider text-gold-gradient leading-none">रौनक</span>
+            <span class="font-royal text-sm md:text-base font-black text-ivory tracking-widest">'26</span>
+          </div>
+          <p class="text-[10px] md:text-xs uppercase tracking-[0.2em] text-goldBurnished font-semibold mt-0.5">
+            OCTAVE • MSIT JANAKPURI
+          </p>
+        </div>
+      </button>
+
+      <!-- Desktop Navigation Tabs -->
+      <nav class="hidden lg:flex items-center bg-maroonDark/90 p-1.5 rounded-full border border-gold/30 shadow-inner">
+        <button onclick="switchTab('home')" data-tab="home" class="nav-tab-btn px-5 py-2 rounded-full text-sm font-bold transition-all bg-gradient-to-r from-royalRed to-crimson text-gold shadow-md">
+          <i class="fa-solid fa-fire-flame-curved mr-1.5"></i>Home
+        </button>
+        <button onclick="switchTab('events')" data-tab="events" class="nav-tab-btn px-5 py-2 rounded-full text-sm font-bold text-ivory/80 hover:text-gold transition-all">
+          <i class="fa-solid fa-guitar mr-1.5"></i>Events
+        </button>
+        <button onclick="switchTab('donate')" data-tab="donate" class="nav-tab-btn px-5 py-2 rounded-full text-sm font-bold text-ivory/80 hover:text-gold transition-all">
+          <i class="fa-solid fa-hand-holding-heart mr-1.5"></i>Donate
+        </button>
+        <button onclick="switchTab('register')" data-tab="register" class="nav-tab-btn px-5 py-2 rounded-full text-sm font-bold text-ivory/80 hover:text-gold transition-all">
+          <i class="fa-solid fa-ticket mr-1.5"></i>Registration
+        </button>
+        <button onclick="switchTab('sponsors')" data-tab="sponsors" class="nav-tab-btn px-5 py-2 rounded-full text-sm font-bold text-ivory/80 hover:text-gold transition-all">
+          <i class="fa-solid fa-handshake-angle mr-1.5"></i>Sponsors
+        </button>
+        <button onclick="switchTab('contact')" data-tab="contact" class="nav-tab-btn px-5 py-2 rounded-full text-sm font-bold text-ivory/80 hover:text-gold transition-all">
+          <i class="fa-solid fa-phone-volume mr-1.5"></i>Contact Us
+        </button>
+      </nav>
+
+      <!-- Right Action Buttons -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        <button onclick="launchCelebrationFireworks()" title="Burst Diwali Patakha!" class="p-2.5 rounded-full bg-maroonDark border border-gold/40 text-gold hover:bg-gold hover:text-obsidian transition text-sm">
+          <i class="fa-solid fa-wand-magic-sparkles"></i>
+        </button>
+        <!-- Mobile Menu Toggle -->
+        <button onclick="toggleMobileMenu()" class="lg:hidden p-2.5 rounded-xl bg-maroonDark border border-gold/40 text-gold">
+          <i id="mobileMenuIcon" class="fa-solid fa-bars text-lg"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobileMenu" class="hidden lg:hidden bg-obsidian/95 border-b border-gold/30 px-4 pt-3 pb-5 space-y-2">
+      <div class="grid grid-cols-2 gap-2">
+        <button onclick="switchTab('home'); toggleMobileMenu()" class="mobile-nav-btn flex items-center justify-center gap-2 py-3 rounded-xl bg-maroonDark border border-gold/30 text-gold font-bold text-sm">
+          <i class="fa-solid fa-house"></i> Home
+        </button>
+        <button onclick="switchTab('events'); toggleMobileMenu()" class="mobile-nav-btn flex items-center justify-center gap-2 py-3 rounded-xl bg-maroonDark border border-gold/30 text-ivory font-bold text-sm">
+          <i class="fa-solid fa-music"></i> Events
+        </button>
+        <button onclick="switchTab('donate'); toggleMobileMenu()" class="mobile-nav-btn flex items-center justify-center gap-2 py-3 rounded-xl bg-maroonDark border border-gold/30 text-ivory font-bold text-sm">
+          <i class="fa-solid fa-hand-holding-heart"></i> Donate
+        </button>
+        <button onclick="switchTab('register'); toggleMobileMenu()" class="mobile-nav-btn flex items-center justify-center gap-2 py-3 rounded-xl bg-maroonDark border border-gold/30 text-ivory font-bold text-sm">
+          <i class="fa-solid fa-id-badge"></i> Register
+        </button>
+        <button onclick="switchTab('sponsors'); toggleMobileMenu()" class="mobile-nav-btn flex items-center justify-center gap-2 py-3 rounded-xl bg-maroonDark border border-gold/30 text-ivory font-bold text-sm">
+          <i class="fa-solid fa-crown"></i> Sponsors
+        </button>
+        <button onclick="switchTab('contact'); toggleMobileMenu()" class="mobile-nav-btn flex items-center justify-center gap-2 py-3 rounded-xl bg-maroonDark border border-gold/30 text-ivory font-bold text-sm">
+          <i class="fa-solid fa-headset"></i> Contact Us
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= MAIN CONTENT CONTAINER ================= -->
+  <main class="flex-grow relative z-10 pt-6 md:pt-8">
+
+    <!-- =================================================================== -->
+    <!-- 1. HOME TAB                                                         -->
+    <!-- =================================================================== -->
+    <section id="tab-home" class="tab-section active">
+      
+      <!-- HERO SECTION -->
+      <div class="relative overflow-hidden pt-6 pb-16 md:py-20 px-4 sm:px-6 lg:px-8">
+        
+        <!-- Giant Rotating Golden Mandala SVG -->
+        <div class=" pointer-events-none absolute top-1/2 left-1/2 w-[520px] h-[520px] md:w-[760px] md:h-[760px] opacity-20 mandala-spin -z-10">
+          <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="200" cy="200" r="190" stroke="#FFD700" stroke-width="1.5" stroke-dasharray="6 6"/>
+            <circle cx="200" cy="200" r="165" stroke="#E6192E" stroke-width="2"/>
+            <circle cx="200" cy="200" r="140" stroke="#FFD700" stroke-width="1.5"/>
+            <circle cx="200" cy="200" r="110" stroke="#FFD700" stroke-width="1" stroke-dasharray="4 4"/>
+            <!-- 16 Lotus Petals -->
+            <g stroke="#FFD700" stroke-width="1.5">
+              <path d="M200 10 C225 60 225 140 200 190 C175 140 175 60 200 10 Z"/>
+              <path d="M200 390 C225 340 225 260 200 210 C175 260 175 340 200 390 Z"/>
+              <path d="M10 200 C60 225 140 225 190 200 C140 175 60 175 10 200 Z"/>
+              <path d="M390 200 C340 225 260 225 210 200 C260 175 340 175 390 200 Z"/>
+              <g transform="rotate(45 200 200)">
+                <path d="M200 10 C225 60 225 140 200 190 C175 140 175 60 200 10 Z"/>
+                <path d="M200 390 C225 340 225 260 200 210 C175 260 175 340 200 390 Z"/>
+                <path d="M10 200 C60 225 140 225 190 200 C140 175 60 175 10 200 Z"/>
+                <path d="M390 200 C340 225 260 225 210 200 C260 175 340 175 390 200 Z"/>
+              </g>
+              <g transform="rotate(22.5 200 200)" stroke="#E6192E">
+                <path d="M200 25 C220 70 220 140 200 190 C180 140 180 70 200 25 Z"/>
+                <path d="M200 375 C220 330 220 260 200 210 C180 260 180 330 200 375 Z"/>
+                <path d="M25 200 C70 220 140 220 190 200 C140 180 70 180 25 200 Z"/>
+                <path d="M375 200 C330 220 260 220 210 200 C260 180 330 180 375 200 Z"/>
+              </g>
+              <g transform="rotate(67.5 200 200)" stroke="#E6192E">
+                <path d="M200 25 C220 70 220 140 200 190 C180 140 180 70 200 25 Z"/>
+                <path d="M200 375 C220 330 220 260 200 210 C180 260 180 330 200 375 Z"/>
+                <path d="M25 200 C70 220 140 220 190 200 C140 180 70 180 25 200 Z"/>
+                <path d="M375 200 C330 220 260 220 210 200 C260 180 330 180 375 200 Z"/>
+              </g>
+            </g>
+          </svg>
+        </div>
+
+        <div class="max-w-5xl mx-auto text-center relative z-10">
+          
+          <!-- Organizer Pill -->
+          <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-maroonDark/90 border border-gold/50 shadow-lg mb-6">
+            <span class="w-2.5 h-2.5 rounded-full bg-dripRed animate-ping"></span>
+            <span class="text-xs md:text-sm font-bold tracking-[0.2em] uppercase text-goldLight">
+              OCTAVE — Music Society of MSIT Presents
+            </span>
+          </div>
+
+          <!-- Main Calligraphy + Royal Title -->
+          <h1 class="relative flex flex-col items-center justify-center my-2 w-full text-center">
+            <span class="block font-hindi text-6xl sm:text-8xl md:text-9xl text-gold-gradient drop-shadow-[0_6px_25px_rgba(230,25,46,0.75)] leading-none select-none">
+              रौनक
+            </span>
+            <span class="block font-royal text-3xl sm:text-5xl md:text-6xl font-black tracking-[0.22em] text-ivory mt-1 drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)]">
+              RAUNAK <span class="text-dripRed">'26</span>
+            </span>
+          </h1>
+
+          <!-- Subtitle -->
+          <p class="mt-4 max-w-2xl mx-auto text-base sm:text-lg md:text-xl text-ivory/90 font-medium leading-relaxed">
+            The Annual Cultural <span class="text-gold font-bold">Diwali Fest & Charity Fundraiser</span> of 
+            <span class="underline decoration-gold/60 underline-offset-4">Maharaja Surajmal Institute of Technology</span>.
+          </p>
+
+          <!-- Key Event Meta Pills -->
+          <div class="mt-7 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+            <div class="glass-card px-4 py-2.5 rounded-2xl flex items-center gap-2.5 border border-gold/40">
+              <i class="fa-regular fa-calendar-check text-gold text-lg"></i>
+              <div class="text-left">
+                <p class="text-[10px] uppercase tracking-wider text-gold/80">Date</p>
+                <p class="text-xs sm:text-sm font-bold text-ivory">31st October 2026</p>
+              </div>
+            </div>
+
+            <div class="glass-card px-4 py-2.5 rounded-2xl flex items-center gap-2.5 border border-gold/40">
+              <i class="fa-regular fa-clock text-gold text-lg"></i>
+              <div class="text-left">
+                <p class="text-[10px] uppercase tracking-wider text-gold/80">Time</p>
+                <p class="text-xs sm:text-sm font-bold text-ivory">9:00 AM Onwards</p>
+              </div>
+            </div>
+
+            <div class="glass-card px-4 py-2.5 rounded-2xl flex items-center gap-2.5 border border-gold/40">
+              <i class="fa-solid fa-location-dot text-dripRed text-lg"></i>
+              <div class="text-left">
+                <p class="text-[10px] uppercase tracking-wider text-gold/80">Venue</p>
+                <p class="text-xs sm:text-sm font-bold text-ivory">MSIT Stairway, Janakpuri</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- LIVE COUNTDOWN CLOCK TO 31ST OCTOBER 2026, 9:00 AM -->
+          <div class="mt-9 max-w-xl mx-auto">
+            <p class="text-xs uppercase tracking-[0.25em] text-goldBurnished font-bold mb-3">
+              <i class="fa-solid fa-hourglass-half mr-1"></i> Countdown to the Grand Diwali Mehfil
+            </p>
+            <div class="grid grid-cols-4 gap-2.5 sm:gap-4">
+              <div class="glass-card gold-border rounded-2xl py-3 px-2">
+                <span id="cd-days" class="block text-2xl sm:text-4xl font-extrabold text-gold">00</span>
+                <span class="text-[10px] sm:text-xs uppercase tracking-widest text-ivory/70">Days</span>
+              </div>
+              <div class="glass-card gold-border rounded-2xl py-3 px-2">
+                <span id="cd-hours" class="block text-2xl sm:text-4xl font-extrabold text-gold">00</span>
+                <span class="text-[10px] sm:text-xs uppercase tracking-widest text-ivory/70">Hours</span>
+              </div>
+              <div class="glass-card gold-border rounded-2xl py-3 px-2">
+                <span id="cd-mins" class="block text-2xl sm:text-4xl font-extrabold text-gold">00</span>
+                <span class="text-[10px] sm:text-xs uppercase tracking-widest text-ivory/70">Minutes</span>
+              </div>
+              <div class="glass-card gold-border rounded-2xl py-3 px-2">
+                <span id="cd-secs" class="block text-2xl sm:text-4xl font-extrabold text-dripRed">00</span>
+                <span class="text-[10px] sm:text-xs uppercase tracking-widest text-ivory/70">Seconds</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Primary Hero CTAs -->
+          <div class="mt-9 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <button onclick="switchTab('donate')" class="w-full sm:w-auto btn-gold px-7 py-4 rounded-2xl text-sm sm:text-base flex items-center justify-center gap-2.5">
+              <i class="fa-solid fa-hand-holding-heart text-lg"></i>
+              <span>Donate to Charity</span>
+            </button>
+
+            <button onclick="switchTab('events')" class="w-full sm:w-auto px-6 py-4 rounded-2xl bg-maroonDark/80 hover:bg-maroonDark border border-gold/40 text-goldLight font-bold text-sm sm:text-base transition flex items-center justify-center gap-2">
+              <span>Explore Attractions</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ABOUT RAUNAK & OCTAVE SECTION -->
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+          
+          <!-- About Raunak Card (Left 7 cols) -->
+          <div class="lg:col-span-7 glass-card gold-border rounded-3xl p-6 sm:p-9 flex flex-col justify-between relative overflow-hidden">
+            <div class="absolute -right-12 -bottom-12 text-9xl font-hindi text-gold/5 select-none pointer-events-none">
+              रौनक
+            </div>
+            <div>
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-crimson/40 border border-gold/40 text-gold text-xs font-bold uppercase tracking-widest mb-4">
+                <i class="fa-solid fa-sparkles"></i> About The Festival
+              </div>
+              <h2 class="font-royal text-3xl sm:text-4xl font-black text-ivory leading-tight">
+                What is <span class="text-gold-gradient font-hindi text-4xl sm:text-5xl">रौनक</span> (Raunak)?
+              </h2>
+              <p class="mt-4 text-ivory/90 text-base sm:text-lg leading-relaxed">
+                <strong class="text-gold">Raunak</strong>, MSIT's annual Diwali cultural fest and fundraiser, not only focuses on celebrating Diwali with loved ones on campus, but also <strong class="text-goldLight underline decoration-dripRed decoration-2">gives donations to NGOs and social welfare organizations</strong> to make their festival a little brighter.
+              </p>
+              <p class="mt-4 text-ivory/80 text-sm sm:text-base leading-relaxed">
+                This year, on <strong class="text-ivory">31st October 2026</strong>, the iconic <strong class="text-ivory">MSIT Stairway</strong> transforms into a royal red-and-gold arena — bringing together soulful Open Mics, electrifying Live Bands, a buzzing Diwali Flea Market, gourmet Food Stalls, and an unforgettable DJ & Dance session!
+              </p>
+            </div>
+
+            <div class="mt-8 grid grid-cols-2 sm:grid-cols-3 gap-3 pt-6 border-t border-gold/20">
+              <div class="bg-obsidian/60 p-3.5 rounded-2xl border border-gold/20 text-center">
+                <div class="text-2xl font-extrabold text-gold">1500+</div>
+                <div class="text-xs text-ivory/70 mt-0.5">Fest Footfall</div>
+              </div>
+              <div class="bg-obsidian/60 p-3.5 rounded-2xl border border-gold/20 text-center">
+                <div class="text-2xl font-extrabold text-dripRed">100%</div>
+                <div class="text-xs text-ivory/70 mt-0.5">NGO Charity Impact</div>
+              </div>
+              <div class="bg-obsidian/60 p-3.5 rounded-2xl border border-gold/20 text-center">
+                <div class="text-2xl font-extrabold text-gold">6+</div>
+                <div class="text-xs text-ivory/70 mt-0.5">Mega Attractions</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- About OCTAVE — The Music Society of MSIT (Right 5 cols) -->
+          <div class="lg:col-span-5 glass-card gold-border rounded-3xl p-6 sm:p-9 flex flex-col justify-between bg-gradient-to-b from-crimson/30 to-obsidian">
+            <div>
+              <div class="flex items-center justify-center gap-4 mb-5">
+                <span class="px-3 py-1 rounded-full bg-gold/15 border border-gold/40 text-gold text-xs font-bold uppercase tracking-widest">
+                  Organizing Society
+                </span>
+              </div>
+
+              <!-- Octave Visual Emblem Card -->
+              <div class="relative mx-auto w-44 h-44 sm:w-52 sm:h-52 rounded-2xl overflow-hidden border-2 border-gold shadow-[0_0_35px_rgba(230,25,46,0.5)] bg-[#220406] flex flex-col items-center justify-center">
+                <img src="./assets/octavelogo.jpeg" alt="Octave Logo" class="w-full h-full object-cover" />
+              </div>
+
+              <h3 class="text-2xl font-extrabold text-center text-gold mt-5 tracking-wide uppercase">
+                OCTAVE
+              </h3>
+              <p class="text-sm text-ivory/80 text-center mt-1 uppercase tracking-widest">
+                Music Society of MSIT
+              </p>
+
+              <div class="mt-5 text-center text-ivory font-bold space-y-1">
+                 <p class="text-goldLight">President : Siddharth Saklani</p>
+                 <p class="text-goldLight">Vice President : Pranav Thapa</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PREVIOUS RAUNAK PHOTO GALLERY (Static Images) -->
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-20 pb-16">
+        <div class="mb-8">
+          <span class="text-xs uppercase tracking-[0.25em] text-gold font-bold">
+            <i class="fa-solid fa-film mr-1"></i> Memories & Legacy
+          </span>
+          <h2 class="font-royal text-3xl sm:text-4xl font-black text-ivory mt-1">
+            Glimpses of <span class="text-gold-gradient">Past Raunak</span>
+          </h2>
+        </div>
+
+        <!-- Gallery Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="glass-card gold-border rounded-3xl overflow-hidden group flex flex-col justify-between">
+            <div class="relative overflow-hidden">
+              <img src="./assets/crowd1.jpeg" alt="Massive MSIT Crowd" class="w-full h-52 object-cover group-hover:scale-105 transition duration-500" />
+            </div>
+            <div class="p-4">
+              <h4 class="font-bold text-base text-ivory group-hover:text-gold transition">Massive MSIT Crowd Euphoria</h4>
+              <p class="text-xs text-ivory/70 mt-1">Hundreds of students gathered in a giant festive circle of joy</p>
+            </div>
+          </div>
+
+          <div class="glass-card gold-border rounded-3xl overflow-hidden group flex flex-col justify-between">
+            <div class="relative overflow-hidden">
+              <img src="./assets/band1.jpeg" alt="Live Stage" class="w-full h-52 object-cover group-hover:scale-105 transition duration-500" />
+            </div>
+            <div class="p-4">
+              <h4 class="font-bold text-base text-ivory group-hover:text-gold transition">Raunak Stage & Live Band</h4>
+              <p class="text-xs text-ivory/70 mt-1">Octave band setting the stage on fire beneath the रौनक banner</p>
+            </div>
+          </div>
+
+          <div class="glass-card gold-border rounded-3xl overflow-hidden group flex flex-col justify-between">
+            <div class="relative overflow-hidden">
+              <img src="./assets/crowd1.jpeg" alt="MSIT Ground View" class="w-full h-52 object-cover group-hover:scale-105 transition duration-500" />
+            </div>
+            <div class="p-4">
+              <h4 class="font-bold text-base text-ivory group-hover:text-gold transition">The Festive Arena View</h4>
+              <p class="text-xs text-ivory/70 mt-1">Looking out at the lively crowd enjoying the performances</p>
+            </div>
+          </div>
+
+          <div class="glass-card gold-border rounded-3xl overflow-hidden group flex flex-col justify-between">
+            <div class="relative overflow-hidden">
+              <img src="./assets/dance1.jpeg" alt="Dance Performance" class="w-full h-52 object-cover group-hover:scale-105 transition duration-500" />
+            </div>
+            <div class="p-4">
+              <h4 class="font-bold text-base text-ivory group-hover:text-gold transition">Festive Ethnic Showcase</h4>
+              <p class="text-xs text-ivory/70 mt-1">Vibrant kurtas, festive choreography, and traditional flair on stage</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- NEW: DONATE TAB                                                     -->
+    <!-- =================================================================== -->
+    <section id="tab-donate" class="tab-section pb-20">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-8 text-center">
+        <span class="text-xs uppercase tracking-[0.25em] text-gold font-bold">
+          <i class="fa-solid fa-hands-holding-circle mr-1"></i> Give Back This Diwali
+        </span>
+        <h2 class="font-royal text-3xl sm:text-5xl font-black text-ivory mt-2 mb-4">
+          Support the <span class="text-gold-gradient">Cause</span>
+        </h2>
+        <p class="text-sm sm:text-base text-ivory/80 mb-8 max-w-2xl mx-auto leading-relaxed">
+          Raunak is fundamentally a charity fundraiser. All proceeds from the fest go directly to NGOs and social welfare organizations to brighten their Diwali. Scan the QR code below to contribute to our charity drive.
+        </p>
+        
+        <div class="inline-block glass-card gold-border-strong rounded-3xl p-8 bg-gradient-to-b from-crimson/40 to-obsidian shadow-2xl">
+          <img src="./assets/donoqr.jpeg" alt="Donate QR" class="w-64 h-64 mx-auto rounded-xl shadow-lg border-2 border-gold">
+          <p class="mt-5 font-bold text-gold text-lg uppercase tracking-widest">Octave Charity Fund</p>
+          <p class="text-xs text-ivory/70 mt-1">Every contribution makes a difference!</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- 2. EVENTS TAB                                                       -->
+    <!-- =================================================================== -->
+    <section id="tab-events" class="tab-section pb-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto pt-4 pb-8">
+          <div class="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-crimson/50 border border-gold/40 text-gold text-xs font-bold uppercase tracking-widest mb-3">
+            <i class="fa-solid fa-bolt"></i> 31st October 2026 • 9:00 AM Onwards • MSIT Stairway
+          </div>
+          <h2 class="font-royal text-3xl sm:text-5xl font-black text-ivory">
+            The <span class="text-gold-gradient">Festive Lineup</span> & Events
+          </h2>
+          <p class="text-sm sm:text-base text-ivory/80 mt-3">
+            From raw unplugged vocals at the Open Mic to booming DJ sets, ethnic thrift stalls, and mouth-watering street food — experience every shade of Raunak '26.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 mt-4">
+          <!-- 1. Open Mic -->
+          <div class="glass-card gold-border rounded-3xl overflow-hidden flex flex-col justify-between group">
+            <div class="relative overflow-hidden">
+              <img src="./assets/mehar1.jpeg" alt="Open Mic" class="w-full h-48 object-cover">
+              <span class="absolute top-3 left-3 px-3 py-1 rounded-full bg-obsidian/90 border border-gold/40 text-gold text-[10px] font-bold uppercase tracking-wider">Registrations Open</span>
+            </div>
+            <div class="p-6">
+              <div class="text-[11px] font-bold text-goldBurnished uppercase tracking-wider mb-1"><i class="fa-regular fa-clock mr-1"></i>9:30 AM Onwards • MSIT Stairway</div>
+              <h3 class="font-royal text-xl sm:text-2xl font-bold text-ivory">Open Mic Showcase</h3>
+              <p class="text-xs sm:text-sm text-ivory/80 mt-2.5 leading-relaxed">Step up to the mic! Vocalists, acoustic guitarists, rappers, beatboxers, and poets take center stage.</p>
+            </div>
+            <div class="px-6 pb-6 pt-2">
+              <button onclick="switchTab('register')" class="w-full py-3 px-4 rounded-xl bg-maroonDark hover:bg-gold text-gold hover:text-obsidian border border-gold/40 font-bold text-xs sm:text-sm transition">Register & Apply →</button>
+            </div>
+          </div>
+
+          <!-- 2. Band Performances -->
+          <div class="glass-card gold-border rounded-3xl overflow-hidden flex flex-col justify-between group">
+            <div class="relative overflow-hidden">
+              <img src="./assets/band1.jpeg" alt="Live Band" class="w-full h-48 object-cover">
+              <span class="absolute top-3 left-3 px-3 py-1 rounded-full bg-obsidian/90 border border-gold/40 text-gold text-[10px] font-bold uppercase tracking-wider">Headliner Act</span>
+            </div>
+            <div class="p-6">
+              <div class="text-[11px] font-bold text-goldBurnished uppercase tracking-wider mb-1"><i class="fa-regular fa-clock mr-1"></i>12:00 PM Onwards • Main Arena</div>
+              <h3 class="font-royal text-xl sm:text-2xl font-bold text-ivory">Live Band Performances</h3>
+              <p class="text-xs sm:text-sm text-ivory/80 mt-2.5 leading-relaxed">Electrifying live sets by OCTAVE blending Hindustani classical rock, Sufi fusion, and high-octane Bollywood anthems.</p>
+            </div>
+            <div class="px-6 pb-6 pt-2">
+              <button onclick="switchTab('register')" class="w-full py-3 px-4 rounded-xl bg-maroonDark hover:bg-gold text-gold hover:text-obsidian border border-gold/40 font-bold text-xs sm:text-sm transition">Join the Fest →</button>
+            </div>
+          </div>
+
+          <!-- 3. Flea Market -->
+          <!-- <div class="glass-card gold-border rounded-3xl overflow-hidden flex flex-col justify-between group">
+            <div class="relative overflow-hidden">
+              <img src="WhatsApp Image 2026-10-23 at 23.28.03 (2).jpg" alt="Flea Market / Pass" class="w-full h-48 object-cover object-top">
+              <span class="absolute top-3 left-3 px-3 py-1 rounded-full bg-obsidian/90 border border-gold/40 text-gold text-[10px] font-bold uppercase tracking-wider">Diwali Shopping</span>
+            </div>
+            <div class="p-6">
+              <div class="text-[11px] font-bold text-goldBurnished uppercase tracking-wider mb-1"><i class="fa-regular fa-clock mr-1"></i>9:00 AM – 6:00 PM • Stairway Walkway</div>
+              <h3 class="font-royal text-xl sm:text-2xl font-bold text-ivory">The Diwali Flea Market</h3>
+              <p class="text-xs sm:text-sm text-ivory/80 mt-2.5 leading-relaxed">Curated creator stalls featuring jhumkas & ethnic jewelry, thrift wear, scented Diwali candles, and mehendi art.</p>
+            </div>
+            <div class="px-6 pb-6 pt-2">
+              <button onclick="switchTab('sponsors')" class="w-full py-3 px-4 rounded-xl bg-maroonDark hover:bg-gold text-gold hover:text-obsidian border border-gold/40 font-bold text-xs sm:text-sm transition">Book a Flea Table →</button>
+            </div>
+          </div> -->
+
+          <!-- 4. Food & Drinks -->
+          <div class="glass-card gold-border rounded-3xl overflow-hidden flex flex-col justify-between group">
+            <div class="relative overflow-hidden">
+              <img src="./assets/stall1.jpeg" alt="Food Fiesta" class="w-full h-48 object-cover">
+              <span class="absolute top-3 left-3 px-3 py-1 rounded-full bg-obsidian/90 border border-gold/40 text-gold text-[10px] font-bold uppercase tracking-wider">Gourmet Cravings</span>
+            </div>
+            <div class="p-6">
+              <div class="text-[11px] font-bold text-goldBurnished uppercase tracking-wider mb-1"><i class="fa-regular fa-clock mr-1"></i>All Day • Food Court Zone</div>
+              <h3 class="font-royal text-xl sm:text-2xl font-bold text-ivory">Food & Drinks Fiesta</h3>
+              <p class="text-xs sm:text-sm text-ivory/80 mt-2.5 leading-relaxed">Feast on crispy Belgian waffles, loaded pizzas, spicy momos, chilled mocktails, energy drinks, and mithai.</p>
+            </div>
+            <div class="px-6 pb-6 pt-2">
+              <button onclick="switchTab('sponsors')" class="w-full py-3 px-4 rounded-xl bg-maroonDark hover:bg-gold text-gold hover:text-obsidian border border-gold/40 font-bold text-xs sm:text-sm transition">View Food Partners →</button>
+            </div>
+          </div>
+
+          <!-- 5. DJ -->
+          <div class="glass-card gold-border rounded-3xl overflow-hidden flex flex-col justify-between group translate-x-48">
+            <div class="relative overflow-hidden">
+              <img src="./assets/crowd1.jpeg" alt="DJ Session" class="w-full h-48 object-cover">
+              <span class="absolute top-3 left-3 px-3 py-1 rounded-full bg-obsidian/90 border border-gold/40 text-gold text-[10px] font-bold uppercase tracking-wider">Grand Finale</span>
+            </div>
+            <div class="p-6">
+              <div class="text-[11px] font-bold text-goldBurnished uppercase tracking-wider mb-1"><i class="fa-regular fa-clock mr-1"></i>4:00 PM Onwards • MSIT Stairway</div>
+              <h3 class="font-royal text-xl sm:text-2xl font-bold text-ivory">High-Voltage DJ Session</h3>
+              <p class="text-xs sm:text-sm text-ivory/80 mt-2.5 leading-relaxed">The DJ drops booming Bollywood remixes, Punjabi bass bangers, and commercial festival drops under the lights.</p>
+            </div>
+            <div class="px-6 pb-6 pt-2">
+              <button onclick="switchTab('register')" class="w-full py-3 px-4 rounded-xl bg-maroonDark hover:bg-gold text-gold hover:text-obsidian border border-gold/40 font-bold text-xs sm:text-sm transition">Join the Vibe →</button>
+            </div>
+          </div>
+
+          <!-- 6. Dancing -->
+          <div class="glass-card gold-border rounded-3xl overflow-hidden flex flex-col justify-between group translate-x-48">
+            <div class="relative overflow-hidden">
+              <img src="./assets/dance1.jpeg" alt="Dancing" class="w-full h-48 object-cover">
+              <span class="absolute top-3 left-3 px-3 py-1 rounded-full bg-obsidian/90 border border-gold/40 text-gold text-[10px] font-bold uppercase tracking-wider">Crowd Euphoria</span>
+            </div>
+            <div class="p-6">
+              <div class="text-[11px] font-bold text-goldBurnished uppercase tracking-wider mb-1"><i class="fa-regular fa-clock mr-1"></i>Throughout the Fest • Open Courtyard</div>
+              <h3 class="font-royal text-xl sm:text-2xl font-bold text-ivory">Music & Dancing</h3>
+              <p class="text-xs sm:text-sm text-ivory/80 mt-2.5 leading-relaxed">Spontaneous dhol circles, flashmobs, garba, and non-stop dancing celebrating the spirit of Diwali at MSIT.</p>
+            </div>
+            <div class="px-6 pb-6 pt-2">
+              <button onclick="switchTab('register')" class="w-full py-3 px-4 rounded-xl bg-maroonDark hover:bg-gold text-gold hover:text-obsidian border border-gold/40 font-bold text-xs sm:text-sm transition">Join the Celebration →</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- 3. REGISTRATION TAB (Direct Links to Google Forms)                  -->
+    <!-- =================================================================== -->
+    <section id="tab-register" class="tab-section pb-20">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-4 pb-8">
+        <span class="text-xs uppercase tracking-[0.25em] text-gold font-bold">
+          <i class="fa-solid fa-link mr-1"></i> Official Portals
+        </span>
+        <h2 class="font-royal text-3xl sm:text-5xl font-black text-ivory mt-2 mb-8">
+          Event <span class="text-gold-gradient">Registrations</span>
+        </h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <!-- Visitor Link Card -->
+          <div class="glass-card gold-border-strong rounded-3xl p-8 flex flex-col justify-between hover:-translate-y-1 transition duration-300">
+            <div>
+              <div class="w-16 h-16 mx-auto bg-dripRed/20 border border-gold/40 text-gold rounded-2xl flex items-center justify-center text-3xl mb-4">
+                <i class="fa-solid fa-id-card-clip"></i>
+              </div>
+              <h3 class="text-2xl font-bold text-ivory">Outside College Visitors</h3>
+              <p class="text-sm text-ivory/70 mt-3 mb-6">
+                Entry is absolutely free for MSIT students. For non-MSIT students, please fill out the official visitor form to get your entry confirmed for 31st October.
+              </p>
+            </div>
+            <a href="#" target="_blank" class="w-full btn-gold py-4 rounded-2xl text-base font-bold tracking-wide flex items-center justify-center gap-2">
+              Visitor Registration Form <i class="fa-solid fa-arrow-up-right-from-square text-sm"></i>
+            </a>
+          </div>
+
+          <!-- Open Mic Link Card -->
+          <div class="glass-card gold-border-strong rounded-3xl p-8 flex flex-col justify-between hover:-translate-y-1 transition duration-300">
+            <div>
+              <div class="w-16 h-16 mx-auto bg-dripRed/20 border border-gold/40 text-gold rounded-2xl flex items-center justify-center text-3xl mb-4">
+                <i class="fa-solid fa-microphone-lines"></i>
+              </div>
+              <h3 class="text-2xl font-bold text-ivory">Open Mic Performers</h3>
+              <p class="text-sm text-ivory/70 mt-3 mb-6">
+                Got a talent to showcase? Apply for the Raunak Open Mic stage! Submit your audition details and showcase your skills to the entire college.
+              </p>
+            </div>
+            <a href="#" target="_blank" class="w-full btn-crimson py-4 rounded-2xl text-base font-bold tracking-wide flex items-center justify-center gap-2">
+              Open Mic Application <i class="fa-solid fa-arrow-up-right-from-square text-sm text-gold"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- 4. SPONSORS TAB (Brochure, Table Prices, Past Sponsors)             -->
+    <!-- =================================================================== -->
+    <section id="tab-sponsors" class="tab-section pb-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="text-center max-w-3xl mx-auto pt-4 pb-10">
+          <span class="px-3.5 py-1 rounded-full bg-gold/15 border border-gold/40 text-gold text-xs font-bold uppercase tracking-widest">
+            Partner With MSIT's Flagship Diwali Fest
+          </span>
+          <h2 class="font-royal text-3xl sm:text-5xl font-black text-ivory mt-3">
+            Sponsors & <span class="text-gold-gradient">Stall Bookings</span>
+          </h2>
+          <p class="text-sm sm:text-base text-ivory/80 mt-3 leading-relaxed">
+            Showcase your brand to <strong class="text-gold">1,500+ college youth</strong> at Maharaja Surajmal Institute of Technology, Janakpuri while supporting our annual Diwali NGO charity drive.
+          </p>
+        </div>
+
+        <!-- OFFICIAL TABLE PRICES -->
+        <div class="mb-16">
+          <div class="text-center mb-6">
+            <h3 class="font-bold text-xl sm:text-2xl uppercase tracking-wider text-gold">
+              <i class="fa-solid fa-store mr-2"></i>Official Stall & Table Setup Packages
+            </h3>
+            <p class="text-xs sm:text-sm text-ivory/70">Book your prime spot at MSIT Stairway for 31st October 2026</p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Tier 1 -->
+            <div class="glass-card gold-border-strong rounded-3xl p-6 sm:p-8 flex flex-col justify-between bg-gradient-to-b from-crimson/40 to-obsidian">
+              <div>
+                <div class="text-xs uppercase tracking-widest text-gold/80 font-bold">Mega Stall Setup</div>
+                <h4 class="text-2xl sm:text-3xl font-black text-ivory mt-1">15 × 15 ft</h4>
+                <div class="mt-4 flex items-baseline gap-1">
+                  <span class="text-4xl sm:text-5xl font-black text-gold">₹10,000/-</span>
+                </div>
+                <ul class="mt-6 space-y-2.5 text-xs sm:text-sm text-ivory/85">
+                  <li class="flex items-center gap-2"><i class="fa-solid fa-check text-gold"></i> Prime central location at MSIT Stairway</li>
+                  <li class="flex items-center gap-2"><i class="fa-solid fa-check text-gold"></i> Ideal for Major Food Brands & Title Stalls</li>
+                  <li class="flex items-center gap-2"><i class="fa-solid fa-check text-gold"></i> Power backup & dedicated volunteer support</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Tier 2 -->
+            <div class="glass-card gold-border rounded-3xl p-6 sm:p-8 flex flex-col justify-between">
+              <div>
+                <div class="text-xs uppercase tracking-widest text-gold/80 font-bold">Standard Stall Setup</div>
+                <h4 class="text-2xl sm:text-3xl font-black text-ivory mt-1">15 × 7.5 ft</h4>
+                <div class="mt-4 flex items-baseline gap-1">
+                  <span class="text-4xl sm:text-5xl font-black text-goldLight">₹7,000/-</span>
+                </div>
+                <ul class="mt-6 space-y-2.5 text-xs sm:text-sm text-ivory/85">
+                  <li class="flex items-center gap-2"><i class="fa-solid fa-check text-gold"></i> High-footfall zone along the MSIT Fest Arena</li>
+                  <li class="flex items-center gap-2"><i class="fa-solid fa-check text-gold"></i> Great for Cafes, Snacks & Apparel</li>
+                  <li class="flex items-center gap-2"><i class="fa-solid fa-check text-gold"></i> Tables, chairs & plug point access</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Tier 3 -->
+            <div class="glass-card gold-border rounded-3xl p-6 sm:p-8 flex flex-col justify-between">
+              <div>
+                <div class="text-xs uppercase tracking-widest text-gold/80 font-bold">Flea & Creator Setup</div>
+                <h4 class="text-2xl sm:text-3xl font-black text-ivory mt-1">Single Table Setup</h4>
+                <div class="mt-4 flex items-baseline gap-1">
+                  <span class="text-4xl sm:text-5xl font-black text-goldLight">₹3,000/-</span>
+                </div>
+                <ul class="mt-6 space-y-2.5 text-xs sm:text-sm text-ivory/85">
+                  <li class="flex items-center gap-2"><i class="fa-solid fa-check text-gold"></i> Dedicated table in the vibrant Diwali Flea Market</li>
+                  <li class="flex items-center gap-2"><i class="fa-solid fa-check text-gold"></i> Perfect for Jewelry, Thrift, Candles, & Crafts</li>
+                  <li class="flex items-center gap-2"><i class="fa-solid fa-check text-gold"></i> Pocket-friendly indie business showcase</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SPONSORSHIP BROCHURE IMAGE -->
+        <div class="mb-16">
+          <div class="text-center mb-5">
+            <span class="text-xs uppercase tracking-[0.2em] text-gold font-bold">Official Document</span>
+            <h3 class="font-royal text-2xl sm:text-3xl font-bold text-ivory">
+              Raunak '26 Sponsorship Brochure
+            </h3>
+          </div>
+          <img src="./assets/raunakbrochure1.jpeg" alt="Sponsorship Brochure" class="w-full max-w-4xl mx-auto rounded-3xl border-4 border-gold shadow-2xl">
+        </div>
+
+        <!-- PAST SPONSORS SHOWCASE -->
+        <div class="mb-16">
+          <div class="text-center mb-8">
+            <span class="text-xs uppercase tracking-[0.25em] text-gold font-bold">Trusted By Industry Leaders</span>
+            <h3 class="font-royal text-2xl sm:text-4xl font-bold text-ivory mt-1">
+              Our <span class="text-gold-gradient">Past Sponsors</span>
+            </h3>
+          </div>
+
+          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+            <!-- 12 Sponsors listed explicitly -->
+            <div class="glass-card gold-border rounded-2xl p-4 flex flex-col items-center justify-center text-center">
+              <img src="./assets/belgianwaffle.jpg" alt="The Belgian Waffle Co." class="w-16 h-16 rounded-full object-contain bg-white p-1.5 shadow-md">
+              <span class="mt-3 text-xs font-bold text-ivory">The Belgian Waffle Co.</span>
+            </div>
+            <div class="glass-card gold-border rounded-2xl p-4 flex flex-col items-center justify-center text-center">
+              <img src="./assets/dominos.jpg" alt="Domino's Pizza" class="w-16 h-16 rounded-2xl object-contain bg-white p-1.5 shadow-md">
+              <span class="mt-3 text-xs font-bold text-ivory">Domino's Pizza</span>
+            </div>
+            <div class="glass-card gold-border rounded-2xl p-4 flex flex-col items-center justify-center text-center">
+              <img src="./assets/burgersinghlogo.jpg" alt="Burger Singh" class="w-16 h-16 rounded-full object-contain bg-white p-1.5 shadow-md">
+              <span class="mt-3 text-xs font-bold text-ivory">Burger Singh</span>
+            </div>
+            <div class="glass-card gold-border rounded-2xl p-4 flex flex-col items-center justify-center text-center">
+              <img src="./assets/swissbeautylogo.jpg" alt="Swiss Beauty" class="w-16 h-16 rounded-full object-contain bg-white p-1.5 shadow-md">
+              <span class="mt-3 text-xs font-bold text-ivory">Swiss Beauty</span>
+            </div>
+            <div class="glass-card gold-border rounded-2xl p-4 flex flex-col items-center justify-center text-center">
+              <img src="./assets/pizzahut.jpg" alt="Pizza Hut" class="w-16 h-16 rounded-full object-contain bg-white p-1.5 shadow-md">
+              <span class="mt-3 text-xs font-bold text-ivory">Pizza Hut</span>
+            </div>
+            <div class="glass-card gold-border rounded-2xl p-4 flex flex-col items-center justify-center text-center">
+              <img src="./assets/hirasweetslogo.jpg" alt="Hira Sweets" class="w-16 h-16 rounded-full object-contain bg-white p-1.5 shadow-md">
+              <span class="mt-3 text-xs font-bold text-ivory">Hira Sweets</span>
+            </div>
+            <div class="glass-card gold-border rounded-2xl p-4 flex flex-col items-center justify-center text-center">
+              <img src="./assets/lapinos logo.jpg" alt="La Pino'z Pizza" class="w-16 h-16 rounded-full object-contain bg-white p-1.5 shadow-md">
+              <span class="mt-3 text-xs font-bold text-ivory">La Pino'z Pizza</span>
+            </div>
+            <div class="glass-card gold-border rounded-2xl p-4 flex flex-col items-center justify-center text-center">
+              <img src="./assets/faasos logo.png" alt="Faasos" class="w-16 h-16 rounded-full object-contain bg-white p-1.5 shadow-md">
+              <span class="mt-3 text-xs font-bold text-ivory">Faasos</span>
+            </div>
+            <div class="glass-card gold-border rounded-2xl p-4 flex flex-col items-center justify-center text-center">
+              <img src="./assets/monsterlogo.jpg" alt="Monster Energy" class="w-16 h-16 rounded-full object-contain bg-white p-1.5 shadow-md">
+              <span class="mt-3 text-xs font-bold text-ivory">Monster Energy</span>
+            </div>
+            <div class="glass-card gold-border rounded-2xl p-4 flex flex-col items-center justify-center text-center">
+              <img src="./assets/wowmomologo.jpg" alt="Wow! Momo" class="w-16 h-16 rounded-2xl object-contain bg-white p-1.5 shadow-md">
+              <span class="mt-3 text-xs font-bold text-ivory">Wow! Momo</span>
+            </div>
+            <div class="glass-card gold-border rounded-2xl p-4 flex flex-col items-center justify-center text-center">
+              <img src="./assets/plumlogo.webp" alt="Plum Goodness" class="w-16 h-16 rounded-full object-contain bg-white p-1.5 shadow-md">
+              <span class="mt-3 text-xs font-bold text-ivory">Plum Goodness</span>
+            </div>
+            <div class="glass-card gold-border rounded-2xl p-4 flex flex-col items-center justify-center text-center">
+              <img src="./assets/nestle.jpg" alt="Nestlé" class="w-16 h-16 rounded-full object-contain bg-white p-1.5 shadow-md">
+              <span class="mt-3 text-xs font-bold text-ivory">Nestlé</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- DIRECT SPONSORSHIP CONTACTS (Ruchit & Siddharth) -->
+        <div class="glass-card gold-border-strong rounded-3xl p-6 sm:p-10 bg-gradient-to-r from-obsidian via-maroonDark to-obsidian">
+          <div class="text-center max-w-2xl mx-auto mb-8">
+            <span class="px-3 py-1 rounded-full bg-gold/20 text-gold text-xs font-bold uppercase tracking-widest">
+              Interested in Sponsoring Raunak '26?
+            </span>
+            <h3 class="font-royal text-2xl sm:text-3xl font-bold text-ivory mt-2">
+              Connect With Our Sponsorship Team
+            </h3>
+            <p class="text-xs sm:text-sm text-ivory/75 mt-1">
+              Reach out directly for custom title sponsorships, banner placements, or stall bookings at MSIT Stairway.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            <!-- Ruchit -->
+            <div class="bg-obsidian/90 border border-gold/40 rounded-2xl p-6 flex flex-col justify-between">
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <span class="text-[11px] font-bold uppercase tracking-widest text-dripRed bg-dripRed/15 px-2.5 py-0.5 rounded">PR & Sponsorships Head</span>
+                  <h4 class="text-2xl font-extrabold text-gold mt-2">Ruchit</h4>
+                  <p class="text-xs text-ivory/70 mt-0.5">Octave — Music Society of MSIT</p>
+                  <p class="text-lg font-bold text-ivory mt-3"><i class="fa-solid fa-phone text-gold mr-1.5"></i>+91 93543 37212</p>
+                </div>
+                <div class="w-12 h-12 rounded-2xl bg-gold/15 border border-gold/40 flex items-center justify-center text-gold text-xl">
+                  <i class="fa-solid fa-handshake"></i>
+                </div>
+              </div>
+            </div>
+
+            <!-- Siddharth Saklani -->
+            <div class="bg-obsidian/90 border border-gold/40 rounded-2xl p-6 flex flex-col justify-between">
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <span class="text-[11px] font-bold uppercase tracking-widest text-gold bg-gold/15 px-2.5 py-0.5 rounded">President of Octave</span>
+                  <h4 class="text-2xl font-extrabold text-gold mt-2">Siddharth Saklani</h4>
+                  <p class="text-xs text-ivory/70 mt-0.5">Octave — Music Society of MSIT</p>
+                  <p class="text-lg font-bold text-ivory mt-3"><i class="fa-solid fa-phone text-gold mr-1.5"></i>+91 95994 14233</p>
+                </div>
+                <div class="w-12 h-12 rounded-2xl bg-gold/15 border border-gold/40 flex items-center justify-center text-gold text-xl">
+                  <i class="fa-solid fa-crown"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- 5. CONTACT US TAB                                                   -->
+    <!-- =================================================================== -->
+    <section id="tab-contact" class="tab-section pb-20">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="text-center pt-4 pb-10">
+          <span class="px-3.5 py-1 rounded-full bg-crimson/50 border border-gold/40 text-gold text-xs font-bold uppercase tracking-widest">
+            Fest Helpdesk
+          </span>
+          <h2 class="font-royal text-3xl sm:text-5xl font-black text-ivory mt-3">
+            Contact Us
+          </h2>
+          <p class="text-sm sm:text-base text-ivory/80 mt-2">
+            Have any doubts about the proceedings of <strong class="text-gold">Raunak '26</strong>? Reach out directly to the Octave leadership!
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+          <!-- 1. President: Siddharth Saklani -->
+          <div class="glass-card gold-border-strong rounded-3xl p-6 flex flex-col justify-between relative overflow-hidden">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="px-3 py-1 rounded-full bg-gold text-obsidian font-bold text-xs uppercase">President • Octave</span>
+                <i class="fa-solid fa-crown text-gold text-xl"></i>
+              </div>
+              <h3 class="text-2xl font-extrabold text-ivory">Siddharth Saklani</h3>
+              <p class="text-xs text-ivory/70 mt-1">Overall Fest Proceedings & Official Queries</p>
+              <div class="mt-4 p-3 rounded-xl bg-obsidian/80 border border-gold/30">
+                <span class="text-lg font-bold text-gold">+91 95994 14233</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. Vice-President: Pranav Thapa -->
+          <div class="glass-card gold-border-strong rounded-3xl p-6 flex flex-col justify-between relative overflow-hidden">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="px-3 py-1 rounded-full bg-dripRed text-ivory border border-gold font-bold text-xs uppercase">Vice-President • Octave</span>
+                <i class="fa-solid fa-guitar text-gold text-xl"></i>
+              </div>
+              <h3 class="text-2xl font-extrabold text-ivory">Pranav Thapa</h3>
+              <p class="text-xs text-ivory/70 mt-1">Event Proceedings & Visitor Entry Queries</p>
+              <div class="mt-4 p-3 rounded-xl bg-obsidian/80 border border-gold/30">
+                <span class="text-lg font-bold text-gold">+91 88829 12571</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="relative z-10 bg-obsidian border-t-2 border-gold/30 pt-12 pb-8 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-8 border-b border-gold/20">
+        
+        <div class="md:col-span-2">
+          <div class="flex items-center gap-3">
+            <span class="font-hindi text-4xl text-gold-gradient">रौनक '26</span>
+          </div>
+          <p class="text-xs sm:text-sm text-ivory/75 mt-3 max-w-md leading-relaxed">
+            The Annual Cultural Diwali Fest & Charity Fundraiser of <strong class="text-ivory">Maharaja Surajmal Institute of Technology (MSIT), Janakpuri</strong>, proudly organized by <strong class="text-gold">OCTAVE — The Music Society of MSIT</strong>.
+          </p>
+          <p class="text-xs text-goldBurnished mt-3 font-semibold">
+            📅 31st October 2026 • 🕘 9:00 AM Onwards • 📍 MSIT Stairway
+          </p>
+        </div>
+
+        <div>
+          <h4 class="font-bold text-sm uppercase tracking-wider text-gold mb-3">Quick Navigation</h4>
+          <ul class="space-y-2 text-xs sm:text-sm text-ivory/80">
+            <li><button onclick="switchTab('home')" class="hover:text-gold transition">Home</button></li>
+            <li><button onclick="switchTab('events')" class="hover:text-gold transition">Events</button></li>
+            <li><button onclick="switchTab('donate')" class="hover:text-gold transition">Donate to Charity</button></li>
+            <li><button onclick="switchTab('register')" class="hover:text-gold transition">Registrations</button></li>
+            <li><button onclick="switchTab('sponsors')" class="hover:text-gold transition">Sponsors & Brochure</button></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-bold text-sm uppercase tracking-wider text-gold mb-3">Direct Contacts</h4>
+          <ul class="space-y-2 text-xs sm:text-sm text-ivory/80">
+            <li><strong class="text-goldLight">Siddharth Saklani (President):</strong> <a href="tel:9599414233" class="hover:underline">9599414233</a></li>
+            <li><strong class="text-goldLight">Pranav Thapa (VP):</strong> <a href="tel:8882912571" class="hover:underline">8882912571</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-ivory/60">
+        <p>© 2026 RAUNAK • OCTAVE — Music Society of MSIT, Janakpuri. All Rights Reserved.</p>
+        <p class="text-gold/80">Crafted in Royal Crimson & Metallic Gold for Diwali '26 ✨</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= JAVASCRIPT LOGIC ================= -->
+  <script>
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-section').forEach(sec => {
+        sec.classList.remove('active');
+      });
+      const target = document.getElementById('tab-' + tabId);
+      if (target) target.classList.add('active');
+
+      document.querySelectorAll('.nav-tab-btn').forEach(btn => {
+        if (btn.getAttribute('data-tab') === tabId) {
+          btn.className = 'nav-tab-btn px-5 py-2 rounded-full text-sm font-bold transition-all bg-gradient-to-r from-royalRed to-crimson text-gold shadow-md';
+        } else {
+          btn.className = 'nav-tab-btn px-5 py-2 rounded-full text-sm font-bold text-ivory/80 hover:text-gold transition-all';
+        }
+      });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobileMenu');
+      const icon = document.getElementById('mobileMenuIcon');
+      menu.classList.toggle('hidden');
+      icon.className = menu.classList.contains('hidden') ? 'fa-solid fa-bars text-lg' : 'fa-solid fa-xmark text-lg';
+    }
+
+    // 9:00 AM Onwards on 31st October 2026
+    const raunakTargetDate = new Date('2026-10-31T09:00:00+05:30').getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const diff = raunakTargetDate - now;
+
+      if (diff <= 0) {
+        document.getElementById('cd-days').textContent = '00';
+        document.getElementById('cd-hours').textContent = '00';
+        document.getElementById('cd-mins').textContent = '00';
+        document.getElementById('cd-secs').textContent = '00';
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const secs = Math.floor((diff % (1000 * 60)) / 1000);
+
+      document.getElementById('cd-days').textContent = String(days).padStart(2, '0');
+      document.getElementById('cd-hours').textContent = String(hours).padStart(2, '0');
+      document.getElementById('cd-mins').textContent = String(mins).padStart(2, '0');
+      document.getElementById('cd-secs').textContent = String(secs).padStart(2, '0');
+    }
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+
+    const canvas = document.getElementById('diwaliCanvas');
+    const ctx = canvas.getContext('2d');
+    let embers = [];
+    let sparks = [];
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    for (let i = 0; i < 45; i++) {
+      embers.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        r: Math.random() * 2.4 + 0.8,
+        vy: -(Math.random() * 0.65 + 0.2),
+        vx: (Math.random() - 0.5) * 0.4,
+        alpha: Math.random() * 0.65 + 0.2,
+        color: Math.random() > 0.3 ? '#FFD700' : '#FF4D4D'
+      });
+    }
+
+    function createSparkBurst(x, y) {
+      const colors = ['#FFD700', '#FFF3B0', '#E6192E', '#FF8C00', '#FFFFFF'];
+      for (let i = 0; i < 28; i++) {
+        const angle = (Math.PI * 2 * i) / 28 + (Math.random() - 0.5) * 0.2;
+        const speed = Math.random() * 4.5 + 1.5;
+        sparks.push({
+          x,
+          y,
+          vx: Math.cos(angle) * speed,
+          vy: Math.sin(angle) * speed,
+          r: Math.random() * 2.5 + 1,
+          alpha: 1,
+          color: colors[Math.floor(Math.random() * colors.length)]
+        });
+      }
+    }
+
+    function launchCelebrationFireworks(bursts = 3) {
+      for (let i = 0; i < bursts; i++) {
+        setTimeout(() => {
+          const rx = Math.random() * (canvas.width * 0.7) + canvas.width * 0.15;
+          const ry = Math.random() * (canvas.height * 0.5) + canvas.height * 0.15;
+          createSparkBurst(rx, ry);
+        }, i * 220);
+      }
+    }
+
+    window.addEventListener('click', (e) => {
+      if (e.target.closest('input, select, textarea, label, button, a')) return;
+      createSparkBurst(e.clientX, e.clientY);
+    });
+
+    function animateDiwaliCanvas() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      embers.forEach(p => {
+        p.x += p.vx;
+        p.y += p.vy;
+        if (p.y < -10) {
+          p.y = canvas.height + 10;
+          p.x = Math.random() * canvas.width;
+        }
+        ctx.save();
+        ctx.globalAlpha = p.alpha;
+        ctx.fillStyle = p.color;
+        ctx.shadowBlur = 8;
+        ctx.shadowColor = p.color;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+      });
+
+      for (let i = sparks.length - 1; i >= 0; i--) {
+        const s = sparks[i];
+        s.x += s.vx;
+        s.y += s.vy;
+        s.vy += 0.08; 
+        s.alpha -= 0.022;
+
+        if (s.alpha <= 0) {
+          sparks.splice(i, 1);
+          continue;
+        }
+
+        ctx.save();
+        ctx.globalAlpha = Math.max(0, s.alpha);
+        ctx.fillStyle = s.color;
+        ctx.shadowBlur = 10;
+        ctx.shadowColor = s.color;
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+      }
+      requestAnimationFrame(animateDiwaliCanvas);
+    }
+
+    window.onload = function () {
+      animateDiwaliCanvas();
+    };
+  </script>
+</body>
+</html>
